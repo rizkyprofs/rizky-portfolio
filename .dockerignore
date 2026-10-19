@@ -1,0 +1,9 @@
+.git
+.github
+helm
+argocd
+k8s
+aws
+monitoring
+docs
+*.md

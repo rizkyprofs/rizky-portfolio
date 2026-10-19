@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rizky – DevOps &amp; DevSecOps Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EDF1F4;--surface:#FFFFFF;--ink:#16213B;--mute:#5A6479;--line:#CBD3DE;--acc:#D9481F;--ok:#1E7F5C;
+--head:"Bricolage Grotesque","Segoe UI",sans-serif;--body:"IBM Plex Sans","Segoe UI",sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121826;--surface:#1A2236;--ink:#E8ECF4;--mute:#9AA5BB;--line:#2D3852;--acc:#FF7A52;--ok:#4CC596}}
+:root[data-theme="dark"]{--bg:#121826;--surface:#1A2236;--ink:#E8ECF4;--mute:#9AA5BB;--line:#2D3852;--acc:#FF7A52;--ok:#4CC596}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.65 var(--body)}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+.wrap{max-width:62rem;margin:0 auto;padding:0 1.25rem}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
+nav b{font:800 1.2rem var(--head)}
+nav a{margin-left:1.25rem;text-decoration:none;color:var(--mute);font-size:.95rem}
+nav a:hover{color:var(--ink)}
+.hero{padding:3rem 0 3.5rem}
+h1{font:800 clamp(3rem,10vw,6.5rem)/.95 var(--head);margin:0 0 1rem;letter-spacing:-.03em}
+.role{font:500 clamp(1.2rem,3vw,1.7rem)/1.3 var(--head);color:var(--acc);margin:0 0 1.25rem}
+.lead{max-width:40rem;color:var(--mute);font-size:1.1rem;margin:0 0 1.75rem}
+.cta{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{padding:.7rem 1.2rem;border-radius:6px;text-decoration:none;font-weight:500;border:1.5px solid var(--ink)}
+.btn.p{background:var(--ink);color:var(--bg)}
+.pipe{display:grid;grid-template-columns:repeat(4,1fr);margin-top:3rem;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.st{padding:1rem 1.1rem;border-right:1px solid var(--line);position:relative}
+.st:last-child{border:0}
+.st small{display:block;color:var(--mute);font-size:.8rem}
+.st strong{font:800 1.05rem var(--head)}
+.st i{position:absolute;right:.9rem;top:.9rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--line);animation:go .5s forwards;animation-delay:calc(var(--n)*.7s + .4s)}
+@keyframes go{to{background:var(--ok)}}
+section{padding:3rem 0;border-top:1px solid var(--line)}
+h2{font:800 clamp(1.8rem,4vw,2.4rem)/1.1 var(--head);margin:0 0 2rem;letter-spacing:-.02em}
+.tl{border-left:2px solid var(--line);margin-left:.4rem}
+.job{position:relative;padding:0 0 2.25rem 1.75rem}
+.job::before{content:"";position:absolute;left:-.55rem;top:.45rem;width:.9rem;height:.9rem;border-radius:50%;background:var(--bg);border:3px solid var(--acc)}
+.job:first-child::before{background:var(--acc)}
+.job h3{font:800 1.2rem var(--head);margin:0}
+.job .m{color:var(--mute);font-size:.92rem;margin:.1rem 0 .6rem}
+.job ul{margin:0;padding-left:1.1rem;max-width:46rem}
+.job li{margin:.3rem 0}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.5rem}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:1.4rem}
+.box h3{font:800 1.1rem var(--head);margin:0 0 .5rem}
+.box p{margin:.4rem 0;color:var(--mute)}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tags span{font-size:.85rem;padding:.2rem .6rem;border:1px solid var(--line);border-radius:99px;background:var(--bg)}
+.sk h3{font-size:1rem;margin:0 0 .6rem}
+.flow{list-style:none;margin:0;padding:0;counter-reset:s;border-left:2px solid var(--line);margin-left:.4rem}
+.flow li{counter-increment:s;position:relative;padding:0 0 1.25rem 1.75rem}
+.flow li::before{content:counter(s);position:absolute;left:-.8rem;top:0;width:1.4rem;height:1.4rem;border-radius:50%;background:var(--ink);color:var(--bg);font:800 .75rem/1.4rem var(--head);text-align:center}
+.flow b{font-family:var(--head)}
+.flow span{display:block;color:var(--mute);font-size:.93rem}
+.dep{display:grid;grid-template-columns:3fr 2fr;gap:2rem;align-items:start}
+@media (max-width:760px){.dep{grid-template-columns:1fr}}
+footer{padding:3rem 0 2rem;border-top:1px solid var(--line);color:var(--mute)}
+footer a{color:var(--ink)}
+@media (max-width:640px){.pipe{grid-template-columns:repeat(2,1fr)}.st:nth-child(2){border-right:0}.st:nth-child(-n+2){border-bottom:1px solid var(--line)}nav a{margin-left:.8rem}}
+@media (prefers-reduced-motion:reduce){.st i{animation:none;background:var(--ok)}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav><b>Rizky</b><div><a href="#experience">Experience</a><a href="#research">Research</a><a href="#skills">Skills</a><a href="#deploy">Deployment</a><a href="#contact">Contact</a></div></nav>
+
+<header class="hero">
+<h1>Rizky</h1>
+<p class="role">DevOps &amp; DevSecOps Engineer</p>
+<p class="lead">Computer Engineering graduate (Cum Laude) from Telkom University. I build CI/CD pipelines, run Linux infrastructure, and add security checks to every stage of delivery.</p>
+<div class="cta"><a class="btn p" href="mailto:rizkyprofes@gmail.com">Email me</a><a class="btn" href="https://github.com/rizkyprofs">GitHub</a><a class="btn" href="https://www.linkedin.com/in/rizky16/">LinkedIn</a></div>
+<div class="pipe" aria-label="Delivery pipeline">
+<div class="st" style="--n:0"><i></i><small>Stage 1</small><strong>Commit</strong><small>GitHub, GitLab</small></div>
+<div class="st" style="--n:1"><i></i><small>Stage 2</small><strong>Build</strong><small>Docker, Podman, Kaniko</small></div>
+<div class="st" style="--n:2"><i></i><small>Stage 3</small><strong>Scan</strong><small>SAST, dependencies, OWASP ZAP</small></div>
+<div class="st" style="--n:3"><i></i><small>Stage 4</small><strong>Deploy</strong><small>Kubernetes, Argo CD, PM2</small></div>
+</div>
+</header>
+
+<section id="experience">
+<h2>Experience</h2>
+<div class="tl">
+<div class="job"><h3>DevOps Engineer, UrbanSolv</h3><p class="m">Bandung · Sep 2026 – Present · MagangHub</p><ul>
+<li>Manage Linux/VPS infrastructure and containerized apps with Podman, and app processes with PM2.</li>
+<li>Built GitHub Actions workflows that automate application deployment.</li>
+<li>Run PostgreSQL databases and the development and staging environments.</li>
+<li>Support Data Warehouse work: data integration and ETL workflows with Apache Airflow.</li>
+<li>Help set DevOps standards and improve deployment workflows.</li></ul></div>
+<div class="job"><h3>DevSecOps, Neraca Ruang</h3><p class="m">Tangerang · Feb 2026 – Apr 2026</p><ul>
+<li>Built and maintained CI/CD pipelines with security checks across the development lifecycle.</li>
+<li>Added static application security testing, dependency scanning, and container security checks.</li>
+<li>Automated deployments to staging and production with development and operations teams.</li>
+<li>Helped manage Linux servers, Nginx reverse proxies, SSL certificates, and Docker containers.</li></ul></div>
+<div class="job"><h3>Teaching &amp; Research Assistant, Security Laboratory</h3><p class="m">Telkom University · Jul 2025 – Jul 2026</p><ul>
+<li>Guided students through system and network security research, from topic to mitigation.</li>
+<li>Prepared and maintained practical environments for cybersecurity lab sessions.</li></ul></div>
+<div class="job"><h3>Network &amp; System Engineer Intern, AirAsia Indonesia</h3><p class="m">Tangerang · Jun 2025 – Aug 2025</p><ul>
+<li>Monitored system and network services to keep them available and performing well.</li>
+<li>Troubleshot system, connectivity, and infrastructure issues with the engineering team.</li></ul></div>
+<div class="job"><h3>Teaching Assistant &amp; Research Coordinator, Software Engineering Laboratory</h3><p class="m">Telkom University · Jun 2024 – Jun 2025</p><ul>
+<li>Taught C programming and ran technical training sessions for lab members.</li>
+<li>Coordinated lab research and guided student competition teams.</li></ul></div>
+<div class="job"><h3>Private Programming Tutor</h3><p class="m">Bandung · Jun 2023 – Sep 2025</p><ul>
+<li>Taught C and Python to university students: functions, arrays, pointers, structures, and debugging.</li></ul></div>
+</div>
+</section>
+
+<section id="research">
+<h2>Research &amp; education</h2>
+<div class="cols">
+<div class="box"><h3>Snort-based inline NIPS for IoT</h3><p>Final project: an inline network intrusion prevention system that protects SSH on IoT infrastructure.</p><p>Accepted for presentation at ICITCOM 2026 (International Conference on Information Technology and Computing).</p></div>
+<div class="box"><h3>Telkom University</h3><p>Bachelor of Computer Engineering, 3.66/4.00, Cum Laude.<br>Sep 2022 – Jul 2026, Bandung.</p><p>Laboratory assistant in two labs. Passed the university PKM selection and took part at the national level.</p></div>
+</div>
+</section>
+
+<section id="skills">
+<h2>Skills</h2>
+<div class="cols">
+<div class="sk"><h3>CI/CD &amp; GitOps</h3><div class="tags"><span>GitHub Actions</span><span>GitLab CI/CD</span><span>Argo CD</span><span>GitOps</span><span>Kaniko</span></div></div>
+<div class="sk"><h3>Containers</h3><div class="tags"><span>Docker</span><span>Docker Compose</span><span>Podman</span><span>Kubernetes</span><span>K3s</span><span>Helm</span></div></div>
+<div class="sk"><h3>Servers &amp; cloud</h3><div class="tags"><span>Linux</span><span>Ubuntu Server</span><span>Nginx</span><span>PM2</span><span>SSH</span><span>AWS EC2</span><span>SSL/TLS</span></div></div>
+<div class="sk"><h3>Security</h3><div class="tags"><span>DevSecOps</span><span>Vulnerability assessment</span><span>System hardening</span><span>SAST</span><span>Dependency scanning</span><span>Snort IPS</span><span>OWASP ZAP</span></div></div>
+<div class="sk"><h3>Monitoring</h3><div class="tags"><span>Prometheus</span><span>Grafana</span><span>Loki</span><span>Elasticsearch</span><span>Kibana</span><span>Filebeat</span></div></div>
+<div class="sk"><h3>Data &amp; code</h3><div class="tags"><span>PostgreSQL</span><span>MySQL</span><span>Apache Airflow</span><span>Bash</span><span>C</span><span>Python</span><span>PHP</span><span>YAML</span></div></div>
+</div>
+</section>
+
+<section id="deploy">
+<h2>How this site is deployed</h2>
+<div class="dep">
+<ol class="flow">
+<li><b>Push to GitHub</b><span>Every change to the site goes through a pull request on the main branch.</span></li>
+<li><b>GitHub Actions builds the image</b><span>A multi-stage Docker build packs the site into a small Nginx image.</span></li>
+<li><b>Trivy scans it</b><span>The pipeline fails on serious vulnerabilities before anything is published.</span></li>
+<li><b>Image goes to Amazon ECR</b><span>Tagged with the commit hash, so every release can be traced and rolled back.</span></li>
+<li><b>Argo CD syncs the cluster</b><span>It watches the Helm chart in Git and applies changes to Kubernetes on its own.</span></li>
+<li><b>K3s on AWS EC2 serves traffic</b><span>Traefik Ingress and cert-manager (Let’s Encrypt) handle routing and HTTPS.</span></li>
+<li><b>Prometheus, Grafana and Loki watch it</b><span>Metrics, dashboards, and logs show uptime and resource use.</span></li>
+</ol>
+<div class="box"><h3>Stack</h3>
+<p>Cloud</p><div class="tags"><span>AWS EC2</span><span>Amazon ECR</span><span>Elastic IP</span><span>Security groups</span></div>
+<p>Cluster</p><div class="tags"><span>K3s</span><span>Helm</span><span>Traefik Ingress</span><span>Nginx (in the container)</span><span>cert-manager</span></div>
+<p>Delivery</p><div class="tags"><span>GitHub Actions</span><span>Argo CD</span><span>Docker</span><span>Trivy</span></div>
+<p>Observability</p><div class="tags"><span>Prometheus</span><span>Grafana</span><span>Loki</span></div></div>
+</div>
+</section>
+
+<footer id="contact">
+<h2>Let’s talk</h2>
+<p>Open to DevOps and DevSecOps roles. Reach me at <a href="mailto:rizkyprofes@gmail.com">rizkyprofes@gmail.com</a> or <a href="tel:+62895634826377">0895634826377</a>.</p>
+<p><a href="https://github.com/rizkyprofs">github.com/rizkyprofs</a> · <a href="https://www.linkedin.com/in/rizky16/">linkedin.com/in/rizky16</a></p>
+</footer>
+</div>
+</body>
+</html>

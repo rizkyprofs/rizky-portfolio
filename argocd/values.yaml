@@ -1,0 +1,7 @@
+# Slimmed-down Argo CD for a single small node
+dex:
+  enabled: false
+notifications:
+  enabled: false
+applicationSet:
+  enabled: false

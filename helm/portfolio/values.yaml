@@ -1,0 +1,24 @@
+replicaCount: 1
+
+# CI overwrites repository and tag on every deploy.
+image:
+  repository: 000000000000.dkr.ecr.ap-southeast-1.amazonaws.com/rizky-portfolio
+  tag: "bootstrap"
+  pullPolicy: IfNotPresent
+
+service:
+  port: 80
+
+ingress:
+  enabled: true
+  className: traefik                      # K3s ships Traefik by default
+  clusterIssuer: letsencrypt-staging      # switch to letsencrypt-prod once it works
+  host: portfolio.1.2.3.4.nip.io          # replace with your Elastic IP or your domain
+
+resources:
+  requests:
+    cpu: 10m
+    memory: 16Mi
+  limits:
+    cpu: 100m
+    memory: 64Mi
