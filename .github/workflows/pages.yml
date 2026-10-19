@@ -1,9 +1,10 @@
+# Temporary hosting on GitHub Pages (free) until the AWS/K3s setup is ready.
 name: pages
 
 on:
   push:
     branches: [main]
-    paths: ["site/**"]
+    paths: ["site/**", ".github/workflows/pages.yml"]
   workflow_dispatch:
 
 permissions:
@@ -29,4 +30,3 @@ jobs:
           path: site
       - id: deployment
         uses: actions/deploy-pages@v4
-

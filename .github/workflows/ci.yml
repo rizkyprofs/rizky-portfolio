@@ -35,28 +35,29 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Scan image with Trivy
-        uses: aquasecurity/trivy-action@0.28.0   # check for a newer release and pin it
-        with:
-          image-ref: portfolio:scan
-          severity: HIGH,CRITICAL
-          ignore-unfixed: true
-          exit-code: "1"
+        run: |
+          docker run --rm \
+            -v /var/run/docker.sock:/var/run/docker.sock \
+            aquasec/trivy:0.65.0 image \
+            --severity HIGH,CRITICAL --ignore-unfixed --exit-code 1 \
+            portfolio:scan
 
-      # Everything below runs only on pushes to main, never on pull requests.
+      # Everything below runs only on pushes to main AND only after AWS is set up
+      # (the AWS_ROLE_ARN repository variable exists). Until then the job just builds and scans.
       - name: Configure AWS credentials (OIDC, no stored keys)
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && vars.AWS_ROLE_ARN != ''
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: ${{ vars.AWS_ROLE_ARN }}
           aws-region: ${{ vars.AWS_REGION }}
 
       - name: Log in to Amazon ECR
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && vars.AWS_ROLE_ARN != ''
         id: ecr
         uses: aws-actions/amazon-ecr-login@v2
 
       - name: Push image to ECR
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && vars.AWS_ROLE_ARN != ''
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -66,7 +67,7 @@ jobs:
           cache-from: type=gha
 
       - name: Bump image tag in Helm values (GitOps)
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && vars.AWS_ROLE_ARN != ''
         env:
           REGISTRY: ${{ steps.ecr.outputs.registry }}
           REPO: ${{ vars.ECR_REPOSITORY }}
